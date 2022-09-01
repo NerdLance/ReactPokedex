@@ -1,10 +1,10 @@
-# Basic E-Commerce App Built with React.js
+# Pokedex Application with React.js
 
-This project is built with React.js
+This project is built with React.js using PokeAPI
 
 ## Included Tools and Libraries
 
-In this project, we utilize Redux, Routes, Hooks, GraphQL, Stripe API, and Firebase
+In this project, we utilize React, APIs, Routing
 
 ## Yours Truly
 
