@@ -1,63 +1,25 @@
 import { useState, useEffect } from 'react'
 import React from 'react'
-import axios from 'axios'
+import { Routes, Route } from 'react-router-dom'
 
+import Home from './routes/Home'
 import Header from './components/layout/Header'
-import CardList from './components/card-list/CardList'
-import SearchBox from './components/search-box/SearchBox'
+import PokeDisplay from './routes/PokeDisplay'
 
 import './App.css';
 
-
 const App = () => {
-  console.log('render')
-  const [searchField, setSearchField] = useState('')
-  const [title, setTitle] = useState('')
-  const [monsters, setMonsters] = useState([])
-  const [filteredMonsters, setFilteredMonsters] = useState(monsters)
-  
-  const handleSearch = (event) => {
-    const searchString = event.target.value.toLowerCase()
-    setSearchField(searchString)
-  }
-
-  const titleChange = (event) => {
-    const newTitle = event.target.value
-    setTitle(newTitle)
-  }
-
-  console.log(title)
-
-  useEffect(() => {
-    axios.get('https://pokeapi.co/api/v2/pokemon?limit=10').then((response) => {
-      setMonsters(response.data.results)
-      setFilteredMonsters(response.data.results)  
-    })
-  }, [])
-
-  useEffect(() => {
-    const newFilteredMonsters = monsters.filter((monster) => {
-      return monster.name.toLowerCase().includes(searchField)
-    })
-
-    setFilteredMonsters(newFilteredMonsters)
-  }, [monsters, searchField])
-
   return (
     <div className="App">
       <div className="App-container">
-        <Header />
-        <div>
-          <div className='body-container container mx-auto py-4'>
-            <SearchBox 
-              onChangeHandler={handleSearch} 
-              searchString={searchField} 
-              placeholder='Search Pokemon' 
-              className='search-box mb-4 text-xl focus:outline-0 focus:border-sky-600 rounded-md border-2 border-sky-400'
-            />
-            <CardList monsters={filteredMonsters} />
-          </div>
-        </div>
+        <Routes>
+          <Route path='/' element={<Header />}>
+            <Route index element={<Home />} />
+          </Route>
+          <Route path='/poke' element={<Header />}>
+            <Route path=':id' element={<PokeDisplay />} />
+          </Route>
+        </Routes>
       </div>
     </div>
   )

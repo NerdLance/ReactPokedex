@@ -26,9 +26,7 @@ const MonsterData = (props) => {
 
     return (
         <div className='pokeblock text-center px-4 py-6 bg-sky-100 border-b-sky-400 rounded-md'>
-            <img alt={`pokemon ${monsterName}`} className='mx-auto' src={imageUrl}/>
             <h2 className='text-2xl font-bold'>{properMonsterName}</h2>
-            <p>{monsterUrl}</p>
         </div>
     )
 }

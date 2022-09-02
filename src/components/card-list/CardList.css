@@ -2,11 +2,3 @@
     
 }
 
-.pokeblock {
-    transform: translateZ(0);
-    transition: transform 0.25s ease-out;
-}
-  
-.pokeblock:hover {
-    transform: scale(1.05);
-}
