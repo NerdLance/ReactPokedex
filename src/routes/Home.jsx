@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import CardList from '../components/card-list/CardList'
@@ -39,7 +38,7 @@ const Home = () => {
                 onChangeHandler={handleSearch} 
                 searchString={searchField} 
                 placeholder='Search Pokemon' 
-                className='search-box mb-4 text-xl focus:outline-0 focus:border-sky-600 md:rounded-md border-2 border-sky-400'
+                className='search-box md:w-full w-4/5 mx-auto mb-4 text-xl focus:outline-0 focus:border-sky-600 rounded-md border-2 border-sky-400'
                 />
                 <RandomPokemonLink />
                 <CardList monsters={filteredMonsters} />
